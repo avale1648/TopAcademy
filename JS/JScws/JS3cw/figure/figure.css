@@ -1,0 +1,39 @@
+.continer
+{
+    display: flex;
+    margin: 40px;
+    padding: 20px;
+    justify-content: center; 
+}
+
+#color, #fig
+{
+    width: 150px;
+    align-items: center;
+    font-weight: bold;
+    font-size: large;
+}
+
+#square
+{
+    height: 150px;
+    width: 150px;
+    background: cyan;
+}
+
+#triangle
+{
+    height: 0;
+    width: 0;
+    border-left: 75px solid transparent;
+    border-right: 75px solid transparent;
+    border-bottom: 150px solid cyan;
+}
+
+#circle
+{
+    height: 150px;
+    width: 150px;
+    border-radius: 75px;
+    background: cyan;
+}

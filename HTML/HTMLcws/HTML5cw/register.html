@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id="body">
+    <form method="post" action="/process.aspx">
+        <table>
+            <tr>
+                <td>
+                    <label for="firstname">Firstname:</label>
+                </td>
+                <td>
+                    <input type="text" id="firstname" name="firstname" placeholder="Your Firstname" tabindex="1" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="lastname">Lastname:</label>
+                </td>
+                <td>
+                    <input type="text" id="lastname" name="lastname" placeholder="Your Lastname" tabindex="2" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Gender:</label>
+                </td>
+                <td>
+                    <label for="male">Male</label>
+                    <input type="radio" id="male" value="male" name="gender" tabindex="3" required>
+                    <label for="female">Female</label>
+                    <input type="radio" id="female" value="female" name="gender" tabindex="4" required>
+                    <label for="other"> Other</label>
+                    <input type="radio" id="other" value="other" name="gender" tabindex="5" required>
+                    <br>
+                    <input type="text" id="other" name="gender" placeholder="Your gender" tabindex="6">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="">Techs:</label>
+                </td>
+                <td>
+                    &nbsp;C++&nbsp;<input type="checkbox" name="techs" value="1" tabindex="7">
+                    C#&nbsp;<input type="checkbox" name="techs" value="1" tabindex="8">
+                    SQL&nbsp;<input type="checkbox" name="techs" value="1" tabindex="9">
+                    HTML&nbsp;<input type="checkbox" name="techs" value="1" tabindex="10">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="mail">Mail:</label>
+                </td>
+                <td>
+                    <input type="email" id="mail" name="mail" placeholder="Your E-mail" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="phone">Phone Number:</label>
+                </td>
+                <td>
+                    <input type="tel" id="phone" name="phone" placeholder="+7(123)456-78-90" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="birthdate">Birth Date:</label>
+                </td>
+                <td>
+                    <input type="date" name="birthdate" id="birthdate">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="">City:</label>
+                </td>
+                <td>
+                    <select name="city" id="city">
+                        <optgroup label="Russia">
+                            <option value="Moscow"></option>
+                            <option value="St Petersburg"></option>
+                            <option value="Krasnodar"></option>
+                        </optgroup label="Ukraine">
+                            <option value="Kiiv"></option>
+                            <option value="Kharkiv"></option>
+                            <option value="Lviv"></option>
+                        </optgroup>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Submit">
+                </td>
+            </tr>
+        </table>
+    </form> 
+</body>
+</html>

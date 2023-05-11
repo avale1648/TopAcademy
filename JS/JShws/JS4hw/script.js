@@ -1,0 +1,15 @@
+document.title = 'Page Title';
+    var pageHeader = document.createElement('h2');
+        var content = document.createTextNode('Page Header');
+    pageHeader.appendChild(content);
+    var div = document.createElement('div');
+        var blockHeader = document.createElement('h3');
+            content = document.createTextNode('Block Header');
+        blockHeader.appendChild(content);
+        var paragraph = document.createElement('p');
+            content = document.createTextNode('Lorem ipsum dolor sit amet.');
+        paragraph.appendChild(content);
+    div.appendChild(blockHeader);
+    div.appendChild(paragraph);
+document.body.append(pageHeader);
+document.body.append(div);

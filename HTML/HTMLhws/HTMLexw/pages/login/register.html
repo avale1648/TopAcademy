@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../main.css">
+    <title>Отаку: регистрация</title>
+</head>
+<body id="body">
+    <div class="parent">
+        <div class="block">
+            <form method="post" action="/process.aspx">
+                <table>
+                    <tr>
+                        <font color="yellow"><h1>Регистрация
+                        </h1></font>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="nickname">Никнейм:</label>
+                        </td>
+                        <td>
+                            <input type="text" id="nickname" name="nickname" placeholder="Введите ваш никнейм" tabindex="1" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="mail">Электронная почта:</label>
+                        </td>
+                        <td>
+                            <input type="email" id="mail" name="mail" placeholder="Your E-mail" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="birthdate">Дата рождения:</label>
+                        </td>
+                        <td>
+                            <input type="date" name="birthdate" id="birthdate">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="password">Пароль:</label>
+                        </td>
+                        <td>
+                            <input type="password" name="password" id="password" placeholder="Введите пароль">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="confirm-password">Подверждение пароля:</label>
+                        </td>
+                        <td>
+                            <input type="password" name="confirm-password" id="confirm-password" placeholder="Повторите пароль">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" value="Регистрация">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div> 
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="collection">
+        <div class="item first">1</div>
+        <div class="item second">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">9</div>
+        <div class="item">0</div>
+    </div>
+</body>
+<style>
+    div
+    {
+        border:1px solid black;
+    }
+    .collection
+    {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: space-around;
+        height: 800px;
+        /*align-items: flex-end;*/
+        align-content: flex-start;
+    }
+    .item
+    {
+        width: 200px;
+        height: 200px;
+    }
+    .first
+    {
+        order: 1;
+        height: 500px;
+    }
+    .second
+    {
+        order: 2;
+        flex-grow:2;
+    }
+</style>
+</html>

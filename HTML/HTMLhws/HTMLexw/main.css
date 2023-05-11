@@ -1,0 +1,101 @@
+@import url('styles/adaptive.css');
+@import url('styles/flex.css');
+@import url('styles/index.css');
+#body
+{
+    background-color: rgb(60, 60, 60);
+    color: ghostwhite;
+    font-weight: bold;
+    font-family:cursive;
+}
+#logo div
+{
+    width:10%
+}
+#header
+{
+    background-color: rgb(40, 40, 40);
+    color: yellow;
+    font-weight: bolder;
+    font-size: large;
+    width: 100%;
+    height:100px;
+    border-radius: 5px;
+    padding: 1px;
+    
+}
+#header a
+{
+    color: yellow;
+    float:right;
+    padding: 1px;
+    vertical-align: bottom;
+}
+#login
+{
+    float:right;
+}
+#sidebar
+{
+    background-color: rgb(40, 40, 40);
+    height: 500px;
+    text-align: center;
+    vertical-align: middle;
+    justify-content: center;
+    border-radius: 2px;
+}
+#sidebar a
+{
+    color: ghostwhite;
+}
+#sidebar ul
+{
+    list-style-position: outside;
+}
+#sidebar img
+{
+    width:100px;
+}
+#center
+{
+    text-align: justify;
+    padding: 5px;
+}
+#footer
+{
+    background-color: rgb(40, 40, 40);
+    width: 100%;
+    height:50px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 5px;
+}
+#footer-item
+{
+    width: 33%;
+    float: left;
+}
+#footer-item a
+{
+    color:ghostwhite;
+}
+.parent
+{
+    width:100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    overflow: auto;
+}
+.block
+{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    margin: -125px 0 0 -125px;
+    background-color: rgb(40, 40, 40);
+    padding: 2px;
+    border-radius: 5px;
+    vertical-align: middle;
+}

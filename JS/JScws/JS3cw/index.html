@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Figures</title>
+    <link rel="stylesheet" href="figure.css">
+</head>
+<body>
+
+    <div class="container">
+        <div id="triangle"></div>
+        <div id="square"></div>
+        <div id="circle"></div>
+    </div>
+    <div id="list_color" align="center">
+        <select name="color" id="color" onchange="change_color(this.options[selectedIndex], fig.options[selectedIndex])">
+            <option value="green">Green</option>
+            <option value="red">Red</option>
+            <option value="yellow">Yellow</option>
+            <option value="black">Black</option>
+            <option value="blue">Blue</option>
+        </select>
+        <select name="fig" id="fig">
+            <option value="triangle">Triangle</option>
+            <option value="square">Square</option>
+            <option value="circle">Circle</option>
+        </select>
+    </div>
+    
+</body>
+<script src="script.js"></script>
+</html>

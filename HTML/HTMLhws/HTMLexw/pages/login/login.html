@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../main.css">
+    <title>Отаку: вход</title>
+</head>
+<body id="body">
+    <div class="parent">
+        <div class="block">
+            <form method="post" action="/process.aspx">
+                <table>
+                    <tr>
+                        <font color="yellow"><h1>Вход</h1></font>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="login">Имя пользователя:</label>
+                        </td>
+                        <td>
+                            <input type="text" id="login" name="login" placeholder="Никнейм или почта">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="password">Пароль:</label>
+                        </td>
+                        <td>
+                            <input type="password" id="password" name="password" placeholder="Пароль">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="save-password">Запомнить меня</label>
+                        </td>
+                        <td>
+                            <input type="checkbox" id="save-password" name="save-password" value="1">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="50%" align="center">
+                            <input type="submit" value="Вход">
+                        </td>
+                        <td width="50%" align="center">
+                            <input type="button" value="Регистрация" onclick="location.href='register.html'">
+                        </td>   
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

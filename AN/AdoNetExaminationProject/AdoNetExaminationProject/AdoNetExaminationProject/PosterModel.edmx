@@ -1,0 +1,596 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище PosterNewModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "PosterNew.dbo.View1" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="View1">
+          <Key>
+            <PropertyRef Name="Customer" />
+            <PropertyRef Name="Birthdate" />
+            <PropertyRef Name="Tickets Sold" />
+          </Key>
+          <Property Name="Customer" Type="nvarchar" MaxLength="41" Nullable="false" />
+          <Property Name="Birthdate" Type="date" Nullable="false" />
+          <Property Name="Tickets Sold" Type="int" Nullable="false" />
+        </EntityType>
+        <Function Name="DeleteCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="customerId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteEvent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="eventId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteTicket" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ticketId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="InsertCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="surname" Type="nvarchar" Mode="In" />
+          <Parameter Name="birthdate" Type="date" Mode="In" />
+          <Parameter Name="ticketId" Type="int" Mode="In" />
+          <Parameter Name="customerId" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="InsertEvent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="dateTime" Type="datetime" Mode="In" />
+          <Parameter Name="country" Type="nvarchar" Mode="In" />
+          <Parameter Name="city" Type="nvarchar" Mode="In" />
+          <Parameter Name="adress" Type="nvarchar" Mode="In" />
+          <Parameter Name="eventTypeId" Type="int" Mode="In" />
+          <Parameter Name="description" Type="nvarchar" Mode="In" />
+          <Parameter Name="ageLimitId" Type="int" Mode="In" />
+          <Parameter Name="tickets" Type="int" Mode="In" />
+          <Parameter Name="soldTickets" Type="int" Mode="In" />
+          <Parameter Name="eventId" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="InsertIntoArchive" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="dateTime" Type="datetime" Mode="In" />
+          <Parameter Name="country" Type="nvarchar" Mode="In" />
+          <Parameter Name="city" Type="nvarchar" Mode="In" />
+          <Parameter Name="adress" Type="nvarchar" Mode="In" />
+          <Parameter Name="eventTypeId" Type="int" Mode="In" />
+          <Parameter Name="description" Type="nvarchar" Mode="In" />
+          <Parameter Name="ageLimitId" Type="int" Mode="In" />
+          <Parameter Name="tickets" Type="int" Mode="In" />
+          <Parameter Name="soldTickets" Type="int" Mode="In" />
+          <Parameter Name="inArchiveId" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="InsertTicket" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="eventId" Type="int" Mode="In" />
+          <Parameter Name="price" Type="money" Mode="In" />
+          <Parameter Name="ticketId" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="Procedure1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="datetime" Type="date" Mode="In" />
+        </Function>
+        <Function Name="Procedure10" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="datetime" Type="date" Mode="In" />
+        </Function>
+        <Function Name="Procedure11" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="datetime" Type="date" Mode="In" />
+        </Function>
+        <Function Name="Procedure2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EventTypeId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Procedure3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Procedure4" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Procedure5" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Procedure6" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="city" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Procedure8" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Procedure9" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="start" Type="date" Mode="In" />
+          <Parameter Name="end" Type="date" Mode="In" />
+        </Function>
+        <Function Name="SaleTicket" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="eventId" Type="int" Mode="In" />
+          <Parameter Name="CustomerId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SelectAgeLimit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ageLimitId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SelectCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="customerId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SelectEvent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="eventId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SelectEventType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="eventTypeId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SelectFromArchive" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fromArchiveId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SelectTicket" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ticketId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UpdateCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="customerId" Type="int" Mode="In" />
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="surname" Type="nvarchar" Mode="In" />
+          <Parameter Name="birthdate" Type="date" Mode="In" />
+          <Parameter Name="ticketId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UpdateEvent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="eventId" Type="int" Mode="In" />
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="dateTime" Type="datetime" Mode="In" />
+          <Parameter Name="country" Type="nvarchar" Mode="In" />
+          <Parameter Name="city" Type="nvarchar" Mode="In" />
+          <Parameter Name="adress" Type="nvarchar" Mode="In" />
+          <Parameter Name="eventTypeId" Type="int" Mode="In" />
+          <Parameter Name="description" Type="nvarchar" Mode="In" />
+          <Parameter Name="ageLimitId" Type="int" Mode="In" />
+          <Parameter Name="tickets" Type="int" Mode="In" />
+          <Parameter Name="soldTickets" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UpdateTicket" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ticketId" Type="int" Mode="In" />
+          <Parameter Name="eventId" Type="int" Mode="In" />
+          <Parameter Name="price" Type="money" Mode="In" />
+        </Function>
+        <EntityContainer Name="Хранилище PosterNewModelContainer">
+          <EntitySet Name="View1" EntityType="Self.View1" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View1].[Customer] AS [Customer], 
+    [View1].[Birthdate] AS [Birthdate], 
+    [View1].[Tickets Sold] AS [Tickets Sold]
+    FROM [dbo].[View1] AS [View1]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PosterNewModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="View1">
+          <Key>
+            <PropertyRef Name="Customer" />
+            <PropertyRef Name="Birthdate" />
+            <PropertyRef Name="Tickets_Sold" />
+          </Key>
+          <Property Name="Customer" Type="String" MaxLength="41" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Birthdate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Tickets_Sold" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="PosterNewEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="View1" EntityType="Self.View1" />
+          <FunctionImport Name="DeleteCustomer">
+          <Parameter Name="customerId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteEvent">
+          <Parameter Name="eventId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertCustomer">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="surname" Mode="In" Type="String" />
+            <Parameter Name="birthdate" Mode="In" Type="DateTime" />
+            <Parameter Name="ticketId" Mode="In" Type="Int32" />
+            <Parameter Name="customerId" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertEvent">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="dateTime" Mode="In" Type="DateTime" />
+            <Parameter Name="country" Mode="In" Type="String" />
+            <Parameter Name="city" Mode="In" Type="String" />
+            <Parameter Name="adress" Mode="In" Type="String" />
+            <Parameter Name="eventTypeId" Mode="In" Type="Int32" />
+            <Parameter Name="description" Mode="In" Type="String" />
+            <Parameter Name="ageLimitId" Mode="In" Type="Int32" />
+            <Parameter Name="tickets" Mode="In" Type="Int32" />
+            <Parameter Name="soldTickets" Mode="In" Type="Int32" />
+            <Parameter Name="eventId" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertIntoArchive">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="dateTime" Mode="In" Type="DateTime" />
+            <Parameter Name="country" Mode="In" Type="String" />
+            <Parameter Name="city" Mode="In" Type="String" />
+            <Parameter Name="adress" Mode="In" Type="String" />
+            <Parameter Name="eventTypeId" Mode="In" Type="Int32" />
+            <Parameter Name="description" Mode="In" Type="String" />
+            <Parameter Name="ageLimitId" Mode="In" Type="Int32" />
+            <Parameter Name="tickets" Mode="In" Type="Int32" />
+            <Parameter Name="soldTickets" Mode="In" Type="Int32" />
+            <Parameter Name="inArchiveId" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertTicket">
+            <Parameter Name="eventId" Mode="In" Type="Int32" />
+            <Parameter Name="price" Mode="In" Type="Decimal" />
+            <Parameter Name="ticketId" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Procedure1" ReturnType="Collection(String)">
+          <Parameter Name="datetime" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="Procedure10" ReturnType="Collection(PosterNewModel.Procedure10_Result)">
+          <Parameter Name="datetime" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="Procedure11" ReturnType="Collection(String)">
+          <Parameter Name="datetime" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="Procedure2" ReturnType="Collection(String)">
+          <Parameter Name="EventTypeId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Procedure3" ReturnType="Collection(PosterNewModel.Procedure3_Result)" />
+          <FunctionImport Name="Procedure4" ReturnType="Collection(PosterNewModel.Procedure4_Result)" />
+          <FunctionImport Name="Procedure5" ReturnType="Collection(String)" />
+          <FunctionImport Name="Procedure6" ReturnType="Collection(PosterNewModel.Procedure6_Result)">
+          <Parameter Name="city" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Procedure8" ReturnType="Collection(String)" />
+          <FunctionImport Name="Procedure9" ReturnType="Collection(PosterNewModel.Procedure9_Result)">
+            <Parameter Name="start" Mode="In" Type="DateTime" />
+            <Parameter Name="end" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SaleTicket">
+            <Parameter Name="eventId" Mode="In" Type="Int32" />
+            <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SelectAgeLimit" ReturnType="Collection(PosterNewModel.SelectAgeLimit_Result)">
+          <Parameter Name="ageLimitId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SelectCustomer" ReturnType="Collection(PosterNewModel.SelectCustomer_Result)">
+          <Parameter Name="customerId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SelectEvent" ReturnType="Collection(PosterNewModel.SelectEvent_Result)">
+          <Parameter Name="eventId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SelectEventType" ReturnType="Collection(PosterNewModel.SelectEventType_Result)">
+          <Parameter Name="eventTypeId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SelectFromArchive" ReturnType="Collection(PosterNewModel.SelectFromArchive_Result)">
+          <Parameter Name="fromArchiveId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SelectTicket" ReturnType="Collection(PosterNewModel.SelectTicket_Result)">
+          <Parameter Name="ticketId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateCustomer">
+            <Parameter Name="customerId" Mode="In" Type="Int32" />
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="surname" Mode="In" Type="String" />
+            <Parameter Name="birthdate" Mode="In" Type="DateTime" />
+            <Parameter Name="ticketId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateEvent">
+            <Parameter Name="eventId" Mode="In" Type="Int32" />
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="dateTime" Mode="In" Type="DateTime" />
+            <Parameter Name="country" Mode="In" Type="String" />
+            <Parameter Name="city" Mode="In" Type="String" />
+            <Parameter Name="adress" Mode="In" Type="String" />
+            <Parameter Name="eventTypeId" Mode="In" Type="Int32" />
+            <Parameter Name="description" Mode="In" Type="String" />
+            <Parameter Name="ageLimitId" Mode="In" Type="Int32" />
+            <Parameter Name="tickets" Mode="In" Type="Int32" />
+            <Parameter Name="soldTickets" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateTicket">
+            <Parameter Name="ticketId" Mode="In" Type="Int32" />
+            <Parameter Name="eventId" Mode="In" Type="Int32" />
+            <Parameter Name="price" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteTicket">
+          <Parameter Name="ticketId" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="Procedure10_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name_" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="DateTime_" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Country" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="City" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Adress" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="EventTypeId" Nullable="true" />
+          <Property Type="String" Name="Description_" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="AgeLimitId" Nullable="true" />
+          <Property Type="Int32" Name="Tickets" Nullable="false" />
+          <Property Type="Int32" Name="SoldTickets" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Procedure3_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name_" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="DateTime_" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Country" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="City" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Adress" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="EventTypeId" Nullable="true" />
+          <Property Type="String" Name="Description_" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="AgeLimitId" Nullable="true" />
+          <Property Type="Int32" Name="Tickets" Nullable="false" />
+          <Property Type="Int32" Name="SoldTickets" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Procedure4_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name_" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="DateTime_" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Country" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="City" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Adress" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="EventTypeId" Nullable="true" />
+          <Property Type="String" Name="Description_" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="AgeLimitId" Nullable="true" />
+          <Property Type="Int32" Name="Tickets" Nullable="false" />
+          <Property Type="Int32" Name="SoldTickets" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Procedure6_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name_" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="DateTime_" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Country" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="City" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Adress" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="EventTypeId" Nullable="true" />
+          <Property Type="String" Name="Description_" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="AgeLimitId" Nullable="true" />
+          <Property Type="Int32" Name="Tickets" Nullable="false" />
+          <Property Type="Int32" Name="SoldTickets" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Procedure9_Result">
+          <Property Type="String" Name="Name_" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="SoldTickets" Nullable="false" />
+          <Property Type="DateTime" Name="DateTime_" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="SelectAgeLimit_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="Age" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SelectCustomer_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name_" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Surname" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="Birthdate" Nullable="false" />
+          <Property Type="Int32" Name="TicketId" Nullable="true" />
+          <Property Type="String" Name="Name_1" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="SelectEvent_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name_" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="DateTime_" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Country" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="City" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Adress" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="EventTypeId" Nullable="true" />
+          <Property Type="String" Name="Name_1" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Description_" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="AgeLimitId" Nullable="true" />
+          <Property Type="Int32" Name="Age" Nullable="false" />
+          <Property Type="Int32" Name="Tickets" Nullable="false" />
+          <Property Type="Int32" Name="SoldTickets" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SelectEventType_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name_" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="SelectFromArchive_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name_" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="DateTime_" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Country" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="City" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Adress" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="EventTypeId" Nullable="true" />
+          <Property Type="String" Name="Name_1" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Description_" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="AgeLimitId" Nullable="true" />
+          <Property Type="Int32" Name="Age" Nullable="false" />
+          <Property Type="Int32" Name="Tickets" Nullable="false" />
+          <Property Type="Int32" Name="SoldTickets" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SelectTicket_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="EventId" Nullable="true" />
+          <Property Type="String" Name="Name_" Nullable="false" MaxLength="20" />
+          <Property Type="Decimal" Name="Price" Nullable="false" Precision="19" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище PosterNewModelContainer" CdmEntityContainer="PosterNewEntities">
+          <EntitySetMapping Name="View1">
+            <EntityTypeMapping TypeName="PosterNewModel.View1">
+              <MappingFragment StoreEntitySet="View1">
+                <ScalarProperty Name="Customer" ColumnName="Customer" />
+                <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+                <ScalarProperty Name="Tickets_Sold" ColumnName="Tickets Sold" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="DeleteCustomer" FunctionName="Хранилище PosterNewModel.DeleteCustomer" />
+          <FunctionImportMapping FunctionImportName="DeleteEvent" FunctionName="Хранилище PosterNewModel.DeleteEvent" />
+          <FunctionImportMapping FunctionImportName="InsertCustomer" FunctionName="Хранилище PosterNewModel.InsertCustomer" />
+          <FunctionImportMapping FunctionImportName="InsertEvent" FunctionName="Хранилище PosterNewModel.InsertEvent" />
+          <FunctionImportMapping FunctionImportName="InsertIntoArchive" FunctionName="Хранилище PosterNewModel.InsertIntoArchive" />
+          <FunctionImportMapping FunctionImportName="InsertTicket" FunctionName="Хранилище PosterNewModel.InsertTicket" />
+          <FunctionImportMapping FunctionImportName="Procedure1" FunctionName="Хранилище PosterNewModel.Procedure1" />
+          <FunctionImportMapping FunctionImportName="Procedure10" FunctionName="Хранилище PosterNewModel.Procedure10">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PosterNewModel.Procedure10_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name_" ColumnName="Name_" />
+                <ScalarProperty Name="DateTime_" ColumnName="DateTime_" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="EventTypeId" ColumnName="EventTypeId" />
+                <ScalarProperty Name="Description_" ColumnName="Description_" />
+                <ScalarProperty Name="AgeLimitId" ColumnName="AgeLimitId" />
+                <ScalarProperty Name="Tickets" ColumnName="Tickets" />
+                <ScalarProperty Name="SoldTickets" ColumnName="SoldTickets" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Procedure11" FunctionName="Хранилище PosterNewModel.Procedure11" />
+          <FunctionImportMapping FunctionImportName="Procedure2" FunctionName="Хранилище PosterNewModel.Procedure2" />
+          <FunctionImportMapping FunctionImportName="Procedure3" FunctionName="Хранилище PosterNewModel.Procedure3">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PosterNewModel.Procedure3_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name_" ColumnName="Name_" />
+                <ScalarProperty Name="DateTime_" ColumnName="DateTime_" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="EventTypeId" ColumnName="EventTypeId" />
+                <ScalarProperty Name="Description_" ColumnName="Description_" />
+                <ScalarProperty Name="AgeLimitId" ColumnName="AgeLimitId" />
+                <ScalarProperty Name="Tickets" ColumnName="Tickets" />
+                <ScalarProperty Name="SoldTickets" ColumnName="SoldTickets" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Procedure4" FunctionName="Хранилище PosterNewModel.Procedure4">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PosterNewModel.Procedure4_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name_" ColumnName="Name_" />
+                <ScalarProperty Name="DateTime_" ColumnName="DateTime_" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="EventTypeId" ColumnName="EventTypeId" />
+                <ScalarProperty Name="Description_" ColumnName="Description_" />
+                <ScalarProperty Name="AgeLimitId" ColumnName="AgeLimitId" />
+                <ScalarProperty Name="Tickets" ColumnName="Tickets" />
+                <ScalarProperty Name="SoldTickets" ColumnName="SoldTickets" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Procedure5" FunctionName="Хранилище PosterNewModel.Procedure5" />
+          <FunctionImportMapping FunctionImportName="Procedure6" FunctionName="Хранилище PosterNewModel.Procedure6">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PosterNewModel.Procedure6_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name_" ColumnName="Name_" />
+                <ScalarProperty Name="DateTime_" ColumnName="DateTime_" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="EventTypeId" ColumnName="EventTypeId" />
+                <ScalarProperty Name="Description_" ColumnName="Description_" />
+                <ScalarProperty Name="AgeLimitId" ColumnName="AgeLimitId" />
+                <ScalarProperty Name="Tickets" ColumnName="Tickets" />
+                <ScalarProperty Name="SoldTickets" ColumnName="SoldTickets" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Procedure8" FunctionName="Хранилище PosterNewModel.Procedure8" />
+          <FunctionImportMapping FunctionImportName="Procedure9" FunctionName="Хранилище PosterNewModel.Procedure9">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PosterNewModel.Procedure9_Result">
+                <ScalarProperty Name="Name_" ColumnName="Name_" />
+                <ScalarProperty Name="SoldTickets" ColumnName="SoldTickets" />
+                <ScalarProperty Name="DateTime_" ColumnName="DateTime_" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SaleTicket" FunctionName="Хранилище PosterNewModel.SaleTicket" />
+          <FunctionImportMapping FunctionImportName="SelectAgeLimit" FunctionName="Хранилище PosterNewModel.SelectAgeLimit">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PosterNewModel.SelectAgeLimit_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SelectCustomer" FunctionName="Хранилище PosterNewModel.SelectCustomer">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PosterNewModel.SelectCustomer_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name_" ColumnName="Name_" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+                <ScalarProperty Name="TicketId" ColumnName="TicketId" />
+                <ScalarProperty Name="Name_1" ColumnName="Name_1" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SelectEvent" FunctionName="Хранилище PosterNewModel.SelectEvent">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PosterNewModel.SelectEvent_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name_" ColumnName="Name_" />
+                <ScalarProperty Name="DateTime_" ColumnName="DateTime_" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="EventTypeId" ColumnName="EventTypeId" />
+                <ScalarProperty Name="Name_1" ColumnName="Name_1" />
+                <ScalarProperty Name="Description_" ColumnName="Description_" />
+                <ScalarProperty Name="AgeLimitId" ColumnName="AgeLimitId" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Tickets" ColumnName="Tickets" />
+                <ScalarProperty Name="SoldTickets" ColumnName="SoldTickets" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SelectEventType" FunctionName="Хранилище PosterNewModel.SelectEventType">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PosterNewModel.SelectEventType_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name_" ColumnName="Name_" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SelectFromArchive" FunctionName="Хранилище PosterNewModel.SelectFromArchive">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PosterNewModel.SelectFromArchive_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name_" ColumnName="Name_" />
+                <ScalarProperty Name="DateTime_" ColumnName="DateTime_" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="EventTypeId" ColumnName="EventTypeId" />
+                <ScalarProperty Name="Name_1" ColumnName="Name_1" />
+                <ScalarProperty Name="Description_" ColumnName="Description_" />
+                <ScalarProperty Name="AgeLimitId" ColumnName="AgeLimitId" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Tickets" ColumnName="Tickets" />
+                <ScalarProperty Name="SoldTickets" ColumnName="SoldTickets" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SelectTicket" FunctionName="Хранилище PosterNewModel.SelectTicket">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PosterNewModel.SelectTicket_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+                <ScalarProperty Name="Name_" ColumnName="Name_" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UpdateCustomer" FunctionName="Хранилище PosterNewModel.UpdateCustomer" />
+          <FunctionImportMapping FunctionImportName="UpdateEvent" FunctionName="Хранилище PosterNewModel.UpdateEvent" />
+          <FunctionImportMapping FunctionImportName="UpdateTicket" FunctionName="Хранилище PosterNewModel.UpdateTicket" />
+          <FunctionImportMapping FunctionImportName="DeleteTicket" FunctionName="Хранилище PosterNewModel.DeleteTicket" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

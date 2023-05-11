@@ -1,0 +1,470 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище Company_DB_PV_113Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BuyOrder">
+          <Key>
+            <PropertyRef Name="BuyOrderID" />
+          </Key>
+          <Property Name="BuyOrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="OrderNumber" Type="nvarchar" MaxLength="500" />
+          <Property Name="OrderDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="BuyOrderDetails">
+          <Key>
+            <PropertyRef Name="DetailID" />
+          </Key>
+          <Property Name="DetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="CatalogID" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Catalog">
+          <Key>
+            <PropertyRef Name="CatalogID" />
+          </Key>
+          <Property Name="CatalogID" Type="int" Nullable="false" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+          <Property Name="ManufacturerID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Price" Type="money" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DateOfBirth" Type="date" />
+          <Property Name="Picture" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="500" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="500" />
+          <Property Name="BirthDate" Type="date" />
+          <Property Name="PositionID" Type="int" />
+          <Property Name="Salary" Type="int" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="PositionID" />
+          </Key>
+          <Property Name="PositionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PositionName" Type="nvarchar" MaxLength="1000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SalaryPayout">
+          <Key>
+            <PropertyRef Name="PayoutID" />
+          </Key>
+          <Property Name="PayoutID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeID" Type="int" Nullable="false" />
+          <Property Name="Salary" Type="money" Nullable="false" />
+          <Property Name="Bonus" Type="money" Nullable="false" />
+          <Property Name="PayoutDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SalaryRate">
+          <Key>
+            <PropertyRef Name="RateID" />
+          </Key>
+          <Property Name="RateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeID" Type="int" Nullable="false" />
+          <Property Name="MonthlyRate" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sales">
+          <Key>
+            <PropertyRef Name="SaleID" />
+          </Key>
+          <Property Name="SaleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="ManagerID" Type="int" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="CatalogID" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="int" Nullable="false" />
+          <Property Name="Price" Type="money" Nullable="false" />
+          <Property Name="Discount" Type="money" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Company_DB_PV_113.dbo.v_Customer" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="v_Customer">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="LastName" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DateOfBirth" Type="date" />
+          <Property Name="Picture" Type="varbinary(max)" />
+        </EntityType>
+        <Function Name="stp_CustomerAdd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FirstName" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="LastName" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="DateOfBirth" Type="date" Mode="In" />
+          <Parameter Name="CustomerID" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="stp_CustomerALL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="stp_CustomerByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="customerID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="stp_CustomerDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CustomerID" Type="int" Mode="In" />
+          <Parameter Name="Result" Type="bit" Mode="InOut" />
+        </Function>
+        <EntityContainer Name="Хранилище Company_DB_PV_113ModelContainer">
+          <EntitySet Name="BuyOrder" EntityType="Self.BuyOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BuyOrderDetails" EntityType="Self.BuyOrderDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Catalog" EntityType="Self.Catalog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalaryPayout" EntityType="Self.SalaryPayout" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalaryRate" EntityType="Self.SalaryRate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sales" EntityType="Self.Sales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="v_Customer" EntityType="Self.v_Customer" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Customer].[id] AS [id], 
+    [v_Customer].[FirstName] AS [FirstName], 
+    [v_Customer].[LastName] AS [LastName], 
+    [v_Customer].[DateOfBirth] AS [DateOfBirth], 
+    [v_Customer].[Picture] AS [Picture]
+    FROM [dbo].[v_Customer] AS [v_Customer]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Company_DB_PV_113Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Company_DB_PV_113Entities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="stp_CustomerAdd">
+            <Parameter Name="FirstName" Mode="In" Type="String" />
+            <Parameter Name="LastName" Mode="In" Type="String" />
+            <Parameter Name="DateOfBirth" Mode="In" Type="DateTime" />
+            <Parameter Name="CustomerID" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="stp_CustomerByID" ReturnType="Collection(Company_DB_PV_113Model.stp_CustomerByID_Result)">
+          <Parameter Name="customerID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="stp_CustomerALL" ReturnType="Collection(Company_DB_PV_113Model.stp_CustomerALL_Result)" />
+          <FunctionImport Name="stp_CustomerDelete">
+            <Parameter Name="CustomerID" Mode="In" Type="Int32" />
+            <Parameter Name="Result" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <EntitySet Name="BuyOrder" EntityType="Company_DB_PV_113Model.BuyOrder" />
+          <EntitySet Name="BuyOrderDetails" EntityType="Company_DB_PV_113Model.BuyOrderDetails" />
+          <EntitySet Name="Catalog" EntityType="Company_DB_PV_113Model.Catalog" />
+          <EntitySet Name="Category" EntityType="Company_DB_PV_113Model.Category" />
+          <EntitySet Name="Customers" EntityType="Company_DB_PV_113Model.Customers" />
+          <EntitySet Name="Employee" EntityType="Company_DB_PV_113Model.Employee" />
+          <EntitySet Name="Position" EntityType="Company_DB_PV_113Model.Position" />
+          <EntitySet Name="SalaryPayout" EntityType="Company_DB_PV_113Model.SalaryPayout" />
+          <EntitySet Name="SalaryRate" EntityType="Company_DB_PV_113Model.SalaryRate" />
+          <EntitySet Name="Sales" EntityType="Company_DB_PV_113Model.Sales" />
+          <EntitySet Name="v_Customer" EntityType="Company_DB_PV_113Model.v_Customer" />
+        </EntityContainer>
+        <ComplexType Name="stp_CustomerByID_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" />
+          <Property Type="String" Name="LastName" Nullable="false" />
+          <Property Type="DateTime" Name="DateOfBirth" Nullable="true" />
+          <Property Type="Binary" Name="Picture" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="stp_CustomerALL_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" />
+          <Property Type="String" Name="LastName" Nullable="false" />
+          <Property Type="DateTime" Name="DateOfBirth" Nullable="true" />
+          <Property Type="Binary" Name="Picture" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="BuyOrder">
+          <Key>
+            <PropertyRef Name="BuyOrderID" />
+          </Key>
+          <Property Name="BuyOrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="OrderNumber" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="OrderDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="BuyOrderDetails">
+          <Key>
+            <PropertyRef Name="DetailID" />
+          </Key>
+          <Property Name="DetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="CatalogID" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Catalog">
+          <Key>
+            <PropertyRef Name="CatalogID" />
+          </Key>
+          <Property Name="CatalogID" Type="Int32" Nullable="false" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <Property Name="ManufacturerID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDate" Type="DateTime" Precision="0" />
+          <Property Name="PositionID" Type="Int32" />
+          <Property Name="Salary" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="PositionID" />
+          </Key>
+          <Property Name="PositionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PositionName" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SalaryPayout">
+          <Key>
+            <PropertyRef Name="PayoutID" />
+          </Key>
+          <Property Name="PayoutID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="Salary" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Bonus" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="PayoutDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="SalaryRate">
+          <Key>
+            <PropertyRef Name="RateID" />
+          </Key>
+          <Property Name="RateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="MonthlyRate" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="Sales">
+          <Key>
+            <PropertyRef Name="SaleID" />
+          </Key>
+          <Property Name="SaleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="ManagerID" Type="Int32" Nullable="false" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="CatalogID" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Discount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="v_Customer">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="LastName" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Company_DB_PV_113ModelContainer" CdmEntityContainer="Company_DB_PV_113Entities" >
+          <FunctionImportMapping FunctionImportName="stp_CustomerAdd" FunctionName="Хранилище Company_DB_PV_113Model.stp_CustomerAdd" />
+          <FunctionImportMapping FunctionImportName="stp_CustomerByID" FunctionName="Хранилище Company_DB_PV_113Model.stp_CustomerByID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Company_DB_PV_113Model.stp_CustomerByID_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="stp_CustomerALL" FunctionName="Хранилище Company_DB_PV_113Model.stp_CustomerALL">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Company_DB_PV_113Model.stp_CustomerALL_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="stp_CustomerDelete" FunctionName="Хранилище Company_DB_PV_113Model.stp_CustomerDelete" />
+          <EntitySetMapping Name="BuyOrder">
+            <EntityTypeMapping TypeName="Company_DB_PV_113Model.BuyOrder">
+              <MappingFragment StoreEntitySet="BuyOrder">
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="BuyOrderID" ColumnName="BuyOrderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BuyOrderDetails">
+            <EntityTypeMapping TypeName="Company_DB_PV_113Model.BuyOrderDetails">
+              <MappingFragment StoreEntitySet="BuyOrderDetails">
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="CatalogID" ColumnName="CatalogID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="DetailID" ColumnName="DetailID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Catalog">
+            <EntityTypeMapping TypeName="Company_DB_PV_113Model.Catalog">
+              <MappingFragment StoreEntitySet="Catalog">
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ManufacturerID" ColumnName="ManufacturerID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CatalogID" ColumnName="CatalogID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Category">
+            <EntityTypeMapping TypeName="Company_DB_PV_113Model.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="Company_DB_PV_113Model.Customers">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employee">
+            <EntityTypeMapping TypeName="Company_DB_PV_113Model.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Position">
+            <EntityTypeMapping TypeName="Company_DB_PV_113Model.Position">
+              <MappingFragment StoreEntitySet="Position">
+                <ScalarProperty Name="PositionName" ColumnName="PositionName" />
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalaryPayout">
+            <EntityTypeMapping TypeName="Company_DB_PV_113Model.SalaryPayout">
+              <MappingFragment StoreEntitySet="SalaryPayout">
+                <ScalarProperty Name="PayoutDate" ColumnName="PayoutDate" />
+                <ScalarProperty Name="Bonus" ColumnName="Bonus" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="PayoutID" ColumnName="PayoutID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalaryRate">
+            <EntityTypeMapping TypeName="Company_DB_PV_113Model.SalaryRate">
+              <MappingFragment StoreEntitySet="SalaryRate">
+                <ScalarProperty Name="MonthlyRate" ColumnName="MonthlyRate" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="RateID" ColumnName="RateID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sales">
+            <EntityTypeMapping TypeName="Company_DB_PV_113Model.Sales">
+              <MappingFragment StoreEntitySet="Sales">
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="CatalogID" ColumnName="CatalogID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="SaleID" ColumnName="SaleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Customer">
+            <EntityTypeMapping TypeName="Company_DB_PV_113Model.v_Customer">
+              <MappingFragment StoreEntitySet="v_Customer">
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

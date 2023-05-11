@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Трансформации в CSS3</title>
+        <style>
+            div{
+                background-color: #ccc;
+                width: 120px;
+                height: 120px;
+                margin:5px;
+                padding: 40px 10px;
+                box-sizing: border-box;
+                border: 1px solid #333;
+                display: inline-block;
+            }
+            .rotated{
+                transform: rotate(30deg);
+            }
+            .halfScale{
+                transform: scale(0.5);
+            }
+            .doubleScale{
+                transform: scale(2);
+            }
+            .scale2x05y
+            {
+                transform:scale(2,0.5);
+            }
+            .mirrored-scale
+            {
+                transform: scaleX(-1);
+            }
+            .traslated
+            {
+                transform: translate(50px, 50px);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="doubleScale">Уменьшен в два раза</div>
+        <div class="rotated">rotate(30deg)</div>
+        <div class="halfScale">Увеличен в 2 раза</div>
+        <div class="scale2x05y"> Х - 2хб Н - 0,5х</div>
+        <div class="mirrored-scale">Абубачир</div>
+        <div class="translated">Перемещенный</div>
+        
+    </body>
+</html>

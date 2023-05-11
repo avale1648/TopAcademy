@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="grid grid-mk1">
+        <div class="grid-item grid-mk2-header">1</div>
+        <div class="grid-item grid-mk2-sidebar">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+        <div class="grid-item">7</div>
+        <div class="grid-item">8</div>
+        <div class="grid-item">9</div>
+    </div>
+</body>
+<style>
+    .grid
+    {
+        display: grid;
+    }
+    .grid-item
+    {
+        border: 1px solid black;
+    }
+    .grid-mk1
+    {
+        grid-template-columns: 30% 200px auto;
+        grid-template-rows: 20% 200px 150px;
+    }
+    .grid-mk2
+    {
+        grid-template-columns: [left] 33% [middle] 33% [right] auto;
+        grid-template-rows: [r1] 100px [r2] 100px [r3] 100px;
+    }
+    .grid-mk2-header
+    {
+        grid-column-start: left;
+        grid-column-end: span 3;
+        grid-row-start: r1;
+        grid-row-end: r1;
+    }
+    .grid-mk2-sidebar
+    {
+        grid-column-start: left;
+        grid-column-end: left;
+        grid-row-start: r2;
+        grid-row-end: r3;
+    }
+    .grid-mk2-footer
+    {
+        grid-column: middle/span 2;
+        grid-row: r3/r3;    
+    }
+</style>
+</html>

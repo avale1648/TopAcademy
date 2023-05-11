@@ -1,0 +1,44 @@
+$full-width:100%;
+$head-height:100px;
+$item-backgorund-colour: rgb(40,40,40);
+$border-radius: 5px;
+$padding:1px;
+#head
+{
+    width:$full-width;
+    height:$head-height;
+    color:yellow;
+    background-color:$item-backgorund-colour;
+    border-radius:$border-radius;
+    font-weight: bolder;
+    font-size: larger;
+    padding: 1px;
+    a
+    {   
+        text-decoration: none;
+    }
+}
+.info
+{
+    width:$full-width;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    overflow: auto;
+}
+.info-block
+{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    margin: -125px 0 0 -125px;
+    background-color: $item-backgorund-colour;
+    padding: 10px;
+    border-radius: $border-radius;
+    vertical-align: middle;
+    a
+    {
+    color: ghostwhite;
+    }
+}

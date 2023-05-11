@@ -1,0 +1,84 @@
+/*стиль для всего тела, здесь задается цвет заднего фона, шрифта и стиль шрифта*/
+#body_layout
+{
+    background-color: rgb(61, 61, 61);
+    color: orange;
+    font-weight: bold;
+    font-family: cursive;
+}
+#calendar td
+{
+    text-align: center;
+    vertical-align: middle;
+    width: 14%;
+    border-radius: 5px;
+}
+#calendar thead, tfoot
+{
+    background-color: rgb(80, 80, 80);
+    border-radius: 10px;
+}
+#calendar tbody
+{
+    background-color: rgb(100, 100, 100);
+    border-radius: 10px;
+}
+/*стиль для контраста между неделями*/
+#week
+{
+    background-color: rgb(120, 120, 120);
+}
+/*стиль выделения выходных и праздников 1*/
+#weekend
+{
+    color: orangered;
+    background-color: rgb(120, 120, 120);
+}
+/*стиль выделения выходных и праздников 2*/
+#weekend_week
+{
+    color: orangered;
+    background-color: rgb(140, 140, 140);
+}
+#img img
+{
+    float: right;
+}
+#main_layout_table
+{
+    width: 100%;
+}
+#left_column
+{
+    width: 50%;
+}
+#left_column img
+{
+    width: 100%;
+}
+#right_column
+{
+    width: 50%;
+}
+#right_column table
+{
+    width: 100%;
+}
+td
+{
+    vertical-align: top;
+}
+.date
+{
+    color: orangered;
+    font-weight: bolder;
+    font-size: 18px;
+}
+.date_month
+{
+    float: left;
+}
+.date_year
+{
+    float:right;
+}

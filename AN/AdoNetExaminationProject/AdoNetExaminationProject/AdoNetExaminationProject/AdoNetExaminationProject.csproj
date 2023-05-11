@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1FAC64B5-96B0-4D54-9CC3-11BCB9CFF835}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>AdoNetExaminationProject</RootNamespace>
+    <AssemblyName>AdoNetExaminationProject</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataLayers\DataLayer.cs" />
+    <Compile Include="DataLayers\Forms\CustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataLayers\Forms\CustomerForm.Designer.cs">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataLayers\Forms\DateTimeParameterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataLayers\Forms\DateTimeParameterForm.Designer.cs">
+      <DependentUpon>DateTimeParameterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataLayers\Forms\EventForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataLayers\Forms\EventForm.Designer.cs">
+      <DependentUpon>EventForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataLayers\Forms\SaleTicketForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataLayers\Forms\SaleTicketForm.Designer.cs">
+      <DependentUpon>SaleTicketForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataLayers\Forms\StringParameterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataLayers\Forms\StringParameterForm.Designer.cs">
+      <DependentUpon>StringParameterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataLayers\Forms\TicketForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataLayers\Forms\TicketForm.Designer.cs">
+      <DependentUpon>TicketForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AgeLimitModel.cs" />
+    <Compile Include="Models\CustomerModel.cs" />
+    <Compile Include="Models\EventModel.cs" />
+    <Compile Include="Models\EventTypeModel.cs" />
+    <Compile Include="Models\TicketModel.cs" />
+    <Compile Include="PosterModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PosterModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PosterModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PosterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PosterModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PosterModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Procedure10_Result.cs">
+      <DependentUpon>PosterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Procedure3_Result.cs">
+      <DependentUpon>PosterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Procedure4_Result.cs">
+      <DependentUpon>PosterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Procedure6_Result.cs">
+      <DependentUpon>PosterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Procedure9_Result.cs">
+      <DependentUpon>PosterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SelectAgeLimit_Result.cs">
+      <DependentUpon>PosterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SelectCustomer_Result.cs">
+      <DependentUpon>PosterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SelectEventType_Result.cs">
+      <DependentUpon>PosterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SelectEvent_Result.cs">
+      <DependentUpon>PosterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SelectFromArchive_Result.cs">
+      <DependentUpon>PosterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SelectTicket_Result.cs">
+      <DependentUpon>PosterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View1.cs">
+      <DependentUpon>PosterModel.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="DataLayers\Forms\CustomerForm.resx">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataLayers\Forms\DateTimeParameterForm.resx">
+      <DependentUpon>DateTimeParameterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataLayers\Forms\EventForm.resx">
+      <DependentUpon>EventForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataLayers\Forms\SaleTicketForm.resx">
+      <DependentUpon>SaleTicketForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataLayers\Forms\StringParameterForm.resx">
+      <DependentUpon>StringParameterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataLayers\Forms\TicketForm.resx">
+      <DependentUpon>TicketForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+    <EntityDeploy Include="PosterModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PosterModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="PosterModel.edmx.diagram">
+      <DependentUpon>PosterModel.edmx</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PosterModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PosterModel.edmx</DependentUpon>
+      <LastGenOutput>PosterModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="PosterModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PosterModel.edmx</DependentUpon>
+      <LastGenOutput>PosterModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

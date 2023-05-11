@@ -1,0 +1,44 @@
+#body-layout
+{
+    background-color: rgb(60, 60, 60);
+    color: orange;
+    font-weight: bold;
+    font-family: cursive;
+}
+#menu div
+{
+    background-color: rgb(40, 40, 40);
+    height: 75px;
+    text-align:center;
+    vertical-align: middle;
+}
+.menu-item
+{
+    width: 25%;
+    float: left;
+}
+.menu-item a
+{
+    color: orangered;
+}
+.left-floating
+{
+    float:left
+}
+.left-floating a
+{
+    color: orangered;
+}
+a
+{
+    text-decoration: none;
+}
+a:hover
+{
+    text-decoration: underline;
+    opacity: 0.5;
+}
+#collection-main
+{
+    clear:both;
+}

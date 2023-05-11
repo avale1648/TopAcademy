@@ -1,0 +1,30 @@
+    .collection
+    {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        height: 800px;
+        align-content: flex-start;
+    }
+    .item
+    {
+        width: 300px;
+        height: 300px;
+        margin:10px;
+        text-align:center;
+        padding: 10px;
+    }
+    .item a
+    {
+        color:ghostwhite;
+    }
+    .item img
+    {
+        width:250px;
+        height:auto;
+    }
+    #div
+    {
+        background-color: rgb(40,40,40);
+        border-radius: 5px;
+    }

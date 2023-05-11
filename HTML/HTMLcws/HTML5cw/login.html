@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
+    <title>Document</title>
+</head>
+<body id="body">
+    <form method="post" action="/process.aspx">
+        <tr>
+            <td>
+                <label for="login">Login:</label>
+            </td>
+            <td>
+                <input type="text" id="login" name="login">
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <td>
+                <label for="password">Password:</label>
+            </td>
+            <td>
+                <input type="password" id="password" name="password">
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <td>
+                <label for="save-password">Save Password</label>
+            </td>
+            <td>
+                <input type="checkbox" id="save-password" name="save-password" value="1">
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <td>
+                <input type="submit" value="Submit">
+            </td>
+            <td>
+                <input type="button" value="Register" onclick="location.href='register.html'">
+            </td>   
+        </tr>
+    </form>
+</body>
+</html>
